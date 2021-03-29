@@ -25,7 +25,7 @@ We decided that we didn't need (n/a) data so we used the dropna function to get 
 After which we sumed up all of the suciceds and population by year and created a dataframe that held the information.
 At this point we went into Postgres sql and created tables that would hold the data that we cleaned 
 
-L
+L -
 Once this was done we went back into pandas and ran the engine and appended the information to the tables created in sql
 
 
