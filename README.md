@@ -1,36 +1,46 @@
 # world-happiness
 
-##background
+## Background
 
-Resources: -WHO Suicide Statistics by country (CSV)-World Happiness Report by country (XLS)Proposal:
 
-For this project our group plans to join the WHO suicide statistics report with the world happiness report data for the most recent year reported and join the tables based on country. 
+# Transforming the data:
 
-The measures we plan to keep in the data set are: 
--Happiness score and overall rank
--Health-Life expectancy
--GDP per capita
--Social Support
--Freedom
+The WHO Suicide Dataset is a CSV file that contains the number of suicides per year for various countries. The data is separated by sex and age and includes the respective populations for those categories. For the purposes of this project, we wanted to combine the demographics to result in only the number of suicides in each country for that year. 
 
-### Process
+To combine the data, we first dropped columns containing null values - note that null values do not necessarily mean that number of suicides for that year was 0, but that data may not have been collected for that year. The demographic data was then combined using the aggregate function to create a final table containing the following variables: 
+* Country
+* Year
+* Number of suicides
+* Total population 
 
-E -
-In this step on the process we used Pandas to load the data, csv files, that we found for our project. 
+---
 
-T - 
-After loading the data we cleaned it up by creating a list variable and appending the columns we wanted to use to the list.
-Once this was completed we changed the names of the columns to something more simple and something that sql would recognize.
-We decided that we didn't need (n/a) data so we used the dropna function to get rid of this information.
-After which we sumed up all of the suciceds and population by year and created a dataframe that held the information.
-At this point we went into Postgres sql and created tables that would hold the data that we cleaned 
+The World Happiness Dataset is a CSV file that contains data for each country for various years and includes the following measures:
+* Life Ladder (Happiness score)
+* Log GDP per capita 
+* Social support 
+* Healthy life expectancy at birth
+* Freedom to make life choices 
+* Generosity 
+* Perceptions of corruption 
 
-L -
-Once this was done we went back into pandas and ran the engine and appended the information to the tables created in sql
+You can read about the variable definitions [here](https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf).
+
+To transform this data, we eliminated the 'Generosity' and 'Perceptions of corruption' columns to make the data more concise, then renamed the columns to allow for simpler querying. Because the datasets contain data for different years, we opted not to eliminate certain years because the data may still be useful in providing a general overview for each country. 
+
+## Loading 
+
+After transforming the data, the tables were loaded into a PostGreSQL database. To confirm that the data was successfully loaded, we created a connection to the database and ran the engine to query the tables. 
+
+## Limitations of the data 
+
+One of the limitations is the lack of data for certain years in both datasets. Some countries have very recent data, whereas other countries have few datapoints or only older data. Because of this, we can't pick a timeframe without excluding many countries or losing potentially useful data. 
 
 
 ## Tools used
-Postgres Sql and Pandas 
+* PostGreSQL 
+* Pandas 
+
 ## Resources
-[World Happiness Report](https://worldhappiness.report/ed/2019/)
-[WHO Suicide Statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
+* [World Happiness Report](https://worldhappiness.report/ed/2019/)
+* [WHO Suicide Statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
