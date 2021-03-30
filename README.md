@@ -2,8 +2,10 @@
 
 ## Background
 
+This script combines data on suicide statistics and world happiness reports that is normalized across each country to provide an accurate overview of the overall wellbeing of the citizens of each country. The goal of this project was to clean up the datasets and load them into a relational database where the tables could be queried to discover insights about the connection between suicide rates and citizen wellbeing. 
 
-# Transforming the data:
+
+## Transforming the data:
 
 The WHO Suicide Dataset is a CSV file that contains the number of suicides per year for various countries. The data is separated by sex and age and includes the respective populations for those categories. For the purposes of this project, we wanted to combine the demographics to result in only the number of suicides in each country for that year. 
 
