@@ -2,7 +2,7 @@
 
 ## Background
 
-This script combines data on suicide statistics and world happiness reports that is normalized across each country to provide an accurate overview of the overall wellbeing of the citizens of each country. The goal of this project was to clean up the datasets and load them into a relational database where the tables could be queried to discover insights about the connection between suicide rates and citizen wellbeing. 
+This script combines data on suicide statistics and world happiness reports that is normalized across each country to provide an accurate overview of the overall wellbeing of the citizens of each country. The goal of this project was to clean up the datasets and load them into a relational database where the tables could be queried to discover insights about the connection between suicide rates and various factors contributing to overall citizen wellbeing. 
 
 
 ## Transforming the data:
